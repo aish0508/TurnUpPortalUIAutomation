@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TurnUp.Utilis;
+using Xunit;
 
 namespace Login.Pages
 {
@@ -50,10 +51,26 @@ namespace Login.Pages
             D.SendKeys("Test Description");
             IWebElement Button = dr.FindElement(By.Id("SaveButton"));
             Button.Click();
-            Thread.Sleep(4000);
+            
         }
         public void DeleteTMPage(IWebDriver dr)
         {
+            Thread.Sleep(3000);
+            IWebElement goToLastPageButtonEdit = dr.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
+            goToLastPageButtonEdit.Click();
+            IWebElement editedRecord = dr.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
+
+            if (editedRecord.Text == "Test")
+            {
+                Thread.Sleep(3000);
+                IWebElement deleteButton = dr.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[5]/a[2]"));
+                deleteButton.Click();
+            }
+            else
+            {
+                Assert.Fail("Record to be deleted has not been found.");
+            }
+            Thread.Sleep(4000);
             IWebElement Delete = dr.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[3]/td[5]/a[2]"));
             Delete.Click();
             // Switch the control of 'driver' to the Alert from main Window
