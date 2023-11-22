@@ -1,18 +1,13 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TurnUp.Utilis
 {
     public class Wait
     {
-        
 
-        public static void WaitForElement(IWebDriver dr, string locatorType, string locatorValue, int seconds)
+
+        public static void WaitToBeClickable(IWebDriver dr, string locatorType, string locatorValue, int seconds)
         {
             var wait = new WebDriverWait(dr, new TimeSpan(0, 0, seconds));
             if (locatorType == "XPath")
@@ -33,6 +28,7 @@ namespace TurnUp.Utilis
             }
 
         }
+
 
         public static void WaitToExist(IWebDriver driver, string locatorType, string locatorValue, int seconds)
         {
@@ -57,16 +53,8 @@ namespace TurnUp.Utilis
 
         }
 
-        internal static void WaitForElement(IWebDriver dr, string v1, int v2)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal static void WaitToBeClickable(IWebDriver dr, string v1, string v2, int v3)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
+
 
 

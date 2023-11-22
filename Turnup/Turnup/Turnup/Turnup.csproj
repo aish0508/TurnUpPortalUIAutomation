@@ -2,23 +2,27 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
-    <PackageReference Include="Selenium.Firefox.WebDriver" Version="0.27.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="NUnit" Version="3.14.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
     <PackageReference Include="Selenium.Support" Version="4.15.0" />
     <PackageReference Include="Selenium.WebDriver" Version="4.15.0" />
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="119.0.6045.10500" />
-    <PackageReference Include="Selenium.WebForms" Version="0.0.19" />
-    <PackageReference Include="xunit.assert" Version="2.6.1" />
+    <PackageReference Include="SpecFlow" Version="3.9.74" />
+    <PackageReference Include="SpecFlow.NUnit" Version="3.9.74" />
+    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.9.74" />
+    <PackageReference Include="xunit.assert" Version="2.6.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Tests\" />
+    <Folder Include="Feature\" />
   </ItemGroup>
 
 </Project>

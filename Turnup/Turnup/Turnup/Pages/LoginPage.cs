@@ -12,6 +12,7 @@ namespace Login.Pages
     {
         public void LoginActions(IWebDriver dr)
         {
+            
             dr.Manage().Window.Maximize();
             dr.Navigate().GoToUrl("http://horse.industryconnect.io/Account/Login?ReturnUrl=%2f");
             Thread.Sleep(5000);
@@ -20,8 +21,12 @@ namespace Login.Pages
             Username.SendKeys("hari");
             IWebElement Password = dr.FindElement(By.Id("Password"));
             Password.SendKeys("123123");
-            IWebElement Login = dr.FindElement(By.XPath("//*[@id=\"loginForm\"]/form/div[3]/input[1]"));
-            IWebElement helloHari = dr.FindElement(By.XPath("//*[@id=\"logoutForm\"]/ul/li/a"));
+            Thread.Sleep(1000);
+            //Identify login button and click on the button
+            IWebElement loginButton = dr.FindElement(By.XPath("//*[@id=\"loginForm\"]/form/div[3]/input[1]"));
+            loginButton.Click();
+
+
         }
     }
 }
